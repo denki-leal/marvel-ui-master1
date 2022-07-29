@@ -7,7 +7,7 @@ import {
   Typography,
   Grid,
 } from "@mui/material";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { marvelActionCreators, State } from "../../store";
@@ -33,6 +33,11 @@ type marvelReduxType = {
 export default function Marvel() {
   const [value, setValue] = useState<string>("");
   const [page, setPage] = useState<number>(1);
+  //const [characters, resetCharacters] = useState<marvelReduxType>({});
+
+  useEffect(() => {
+    getCharacters();
+  }, []);
 
   const marvelRedux: marvelReduxType = useSelector(
     ({ marvel }: State) => marvel
@@ -88,7 +93,7 @@ export default function Marvel() {
             </Paper>
           </Box>
         </Grid>
-      </Grid>{" "}
+      </Grid>
       <>
         {Object.keys(marvelRedux).length !== 0 && (
           <>
