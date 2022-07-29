@@ -88,39 +88,40 @@ export default function Marvel() {
             </Paper>
           </Box>
         </Grid>
-      </Grid>
-      <Grid container spacing={2}>
+      </Grid>{" "}
+      <>
         {Object.keys(marvelRedux).length !== 0 && (
           <>
-            {marvelRedux.data.results.map((res, index) => {
-              return (
-                <Grid
-                  key={index}
-                  item
-                  xs={4}
-                  sx={{
-                    backgroundColor: "#b4c6e8",
-                    border: "0.25rem solid brown",
-                    borderRadius: "0.625rem",
-                    paddingBottom: "0.625rem",
-                  }}
-                >
-                  <MarvelCard
-                    key={res.name}
-                    name={res.name}
-                    description={
-                      res.description
-                        ? res.description
-                        : "Description not available"
-                    }
-                    thumbnail={res.thumbnail}
-                    id={res.id}
-                    comics={res.comics}
-                  />
-                </Grid>
-              );
-            })}
-
+            <Grid container spacing={2}>
+              {marvelRedux.data.results.map((res, index) => {
+                return (
+                  <Grid
+                    key={index}
+                    item
+                    xs={4}
+                    sx={{
+                      backgroundColor: "#b4c6e8",
+                      border: "0.25rem solid brown",
+                      borderRadius: "0.625rem",
+                      paddingBottom: "0.625rem",
+                    }}
+                  >
+                    <MarvelCard
+                      key={res.name}
+                      name={res.name}
+                      description={
+                        res.description
+                          ? res.description
+                          : "Description not available"
+                      }
+                      thumbnail={res.thumbnail}
+                      id={res.id}
+                      comics={res.comics}
+                    />
+                  </Grid>
+                );
+              })}
+            </Grid>
             <Grid
               spacing={12}
               display="flex"
@@ -153,7 +154,7 @@ export default function Marvel() {
             </Grid>
           </>
         )}
-      </Grid>
+      </>
     </>
   );
 }
