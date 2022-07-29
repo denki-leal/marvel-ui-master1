@@ -1,6 +1,6 @@
 interface IGetCharacters {
-    type: 'getCharacters',
-    payload: string
+  type: "getCharacters";
+  payload: string;
 }
 
-export type Action =  IGetCharacters
+export type Action = IGetCharacters;
